@@ -6,3 +6,12 @@ body {
 a {
   color: #00b7ff;
 }
+
+.nav-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-buttons a {
+  margin-left: 10px;
+}
