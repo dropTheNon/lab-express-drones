@@ -1,4 +1,6 @@
 <br/>
+<h1>{{title}}</h1>
+<br/>
 <h4>Available drones</h4>
 <br/>
 {{#each drones}}
@@ -6,6 +8,7 @@
         <div class="all-drones-list"><p>Name: {{this.name}}</p></div>
         <div class="all-drones-list"><p>Number of Propellers: {{this.propellers}}</p></div>
         <div class="all-drones-list"><p>Maximum Speed: {{this.maxSpeed}}</p></div>
+        <a href="/drones/{{this._id}}/edit" type="button" class="btn btn-info">Edit drone</a>
         <div class="all-drones-list"><p>---------------------------------</p></div>
     </div>
 {{/each}}

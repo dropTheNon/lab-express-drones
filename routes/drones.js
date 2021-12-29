@@ -23,17 +23,38 @@ router.get('/drones/create', (req, res, next) => {
 
 router.post('/drones/create', (req, res, next) => {
   // Iteration #3: Add a new drone
-  // ... your code here
+  Drone.create(req.body)
+    .then((results) => {
+      res.render('drones/list', {
+        title: `${results.name} has been added!`
+      });
+    })
+    .catch((err) => {
+      console.log(`Error while creating drone: `, err);
+      res.render('drones/create-form', {
+        title: `Something went wrong, please try again!`
+      });
+    })
 });
 
 router.get('/drones/:id/edit', (req, res, next) => {
   // Iteration #4: Update the drone
-  // ... your code here
+  Drone.findById(req.params.id)
+    .then((results) => {
+      res.render('drones/update-form', results);
+    })
+    .catch((err) => {
+      console.log('Error finding match in database: ', err);
+      res.render('drones/list', {
+        title: `An error occurred, please try again!`
+      });
+    });
 });
 
 router.post('/drones/:id/edit', (req, res, next) => {
   // Iteration #4: Update the drone
-  // ... your code here
+  console.log(`id: `, req.params.id);
+  console.log('req.body: ', req.body);
 });
 
 router.post('/drones/:id/delete', (req, res, next) => {
